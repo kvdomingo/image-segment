@@ -4,7 +4,9 @@ from pathlib import Path
 from numpy import ndarray
 from matplotlib import pyplot as plt
 from .calc import bgr_to_ncc, pixel_likelihood
-from .point import Point
+from typing import TypeAlias
+
+Point: TypeAlias = tuple[int, int]
 
 
 class ImageSegment:
@@ -24,7 +26,7 @@ class ImageSegment:
         )
         self.cropping = False
         self.selection_rectangle: [Point] = None
-        self.reference_point: [Point] = None
+        self.reference_point: [Point, Point] = None
         self.mu_r: float = 0
         self.sigma_r: float = 0
         self.mu_g: float = 0
